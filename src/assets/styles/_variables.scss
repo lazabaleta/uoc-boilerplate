@@ -1,4 +1,5 @@
 @use "sass:color";
+@use "sass:math";
 
 $font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
   "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
@@ -10,3 +11,18 @@ $uoc-masterbrand: #73edff;
 $uoc-bg: color.scale($uoc-masterbrand, $lightness: 70%);
 
 $mqMinWidth: 420px;
+
+@function rem($px-value, $base: 16px) {
+  @return math.div($px-value, $base) * 1rem;
+}
+
+$color-primary: #5d1a23;
+$color-accent: #d4af37;
+$color-background-light: #fdfcf9;
+$color-background-section: #f3e5d4;
+$color-text-light: #fdfcf9;
+$color-text-dark: #212529;
+$color-text-muted: #6c757d;
+$border-radius: rem(8px);
+$box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+  0 2px 4px -2px rgb(0 0 0 / 0.1);

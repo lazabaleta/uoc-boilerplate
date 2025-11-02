@@ -1,59 +1,346 @@
-@use "../variables";
+@use "../variables" as vars;
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
   margin: 0;
-  padding: 2rem;
-  font-family: variables.$font-family-sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  background-color: variables.$uoc-bg;
-  color: variables.$uoc-corporate;
+  font-family: vars.$font-family-sans-serif;
+  color: vars.$color-text-dark;
+  background-color: vars.$color-background-light;
+  line-height: 1.6;
 }
 
-.uoc-container {
-  max-width: 800px;
-  margin: auto;
-  padding: 2rem;
-  border-radius: 2rem;
-  text-align: center;
-  background-color: #fff;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: vars.$font-family-serif;
+  color: vars.$color-primary;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
-.uoc-logo {
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
   display: block;
+}
+
+.container {
+  max-width: 1152px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 1.5rem;
-  max-width: 200px;
-  height: auto;
-
-  @media (min-width: variables.$mqMinWidth) {
-    max-width: none;
-  }
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-.uoc-title {
-  font-family: variables.$font-family-serif;
-  font-size: 24px;
-  font-weight: 700;
-  color: variables.$uoc-corporate;
-
-  @media (min-width: variables.$mqMinWidth) {
-    font-size: 36px;
-  }
+.section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
-.uoc-footer {
-  margin-top: 1.5rem;
-  font-size: 0.75rem;
+.section--shaded {
+  background-color: vars.$color-background-section;
+}
+
+.section-title {
   text-align: center;
+  font-size: 2.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+  background-color: vars.$color-background-light;
+  border-bottom: 1px solid rgba(93, 26, 35, 0.2);
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.header__brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: vars.$color-primary;
+}
+
+.header__logo {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.header__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.nav__list {
+  display: none;
+  gap: 2.25rem;
+}
+
+.nav__link {
+  font-size: 0.875rem;
+  font-weight: 700;
+  transition: color 0.2s ease-in-out;
+}
+
+.nav__link:hover {
+  color: vars.$color-accent;
+}
+
+.nav-toggle {
+  display: block;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.leo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 1rem;
+  text-align: center;
+  color: vars.$color-text-light;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("../images/leo-leon.jpg");
+}
+
+.leo__title {
+  font-size: 3rem;
+  font-weight: 900;
+  color: inherit;
+  margin-bottom: 0.5rem;
+}
+
+.leo__subtitle {
+  font-size: 1rem;
+  color: inherit;
+}
+
+.intro {
+  text-align: center;
+}
+
+.intro p {
+  max-width: 768px;
+  margin: 0 auto;
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: vars.$color-text-dark;
+}
+
+.highlights-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+
+.card {
+  background-color: vars.$color-background-light;
+  border-radius: vars.$border-radius;
+  box-shadow: vars.$box-shadow;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-0.5rem);
+}
+
+.card__image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-size: cover;
+  background-position: center;
+}
+
+.card__content {
+  padding: 1.5rem;
+}
+
+.card__title {
+  font-size: 1.5rem;
+}
+
+.card__text {
+  color: vars.$color-text-muted;
+  margin-top: 0.5rem;
+}
+
+.gastronomy {
+  text-align: center;
+}
+
+.gastronomy p {
+  max-width: 768px;
+  margin: 0 auto 2.5rem auto;
+  font-size: 1.125rem;
+}
+
+.gastronomy-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.gastronomy-grid__item {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-size: cover;
+  background-position: center;
+  border-radius: vars.$border-radius;
+}
+
+.cta {
+  text-align: center;
+}
+
+.cta .section-title {
+  margin-bottom: 1.5rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.25rem;
+  height: 3rem;
+  background-color: vars.$color-primary;
+  color: vars.$color-text-light;
+  font-weight: 700;
+  border: none;
+  border-radius: vars.$border-radius;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background-color: #4a151c;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+  transform: scale(1.05);
+}
+
+.footer {
+  padding: 2rem 1rem;
+  background-color: #111827;
+  color: #9ca3af;
+}
+
+.footer__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.footer p {
+  font-size: 0.875rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+
+  a {
+    transition: color 0.2s ease-in-out;
+    font-size: 1.5rem;
+    line-height: 1;
+
+    &:hover {
+      color: vars.$color-accent;
+    }
+
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .header {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .nav__list {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .leo {
+    min-height: 80vh;
+  }
+
+  .leo__title {
+    font-size: 4.5rem;
+  }
+
+  .leo__subtitle {
+    font-size: 1.125rem;
+  }
+
+  .section {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .highlights-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gastronomy-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .footer__content {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header,
+  .section {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
 }

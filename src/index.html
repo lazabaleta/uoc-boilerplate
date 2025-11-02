@@ -1,27 +1,84 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" type="text/css" href="./assets/styles/main.scss"><!-- do not remove this line! -->
-    <title>UOC Boilerplate</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link rel="stylesheet" type="text/css" href="./assets/styles/main.scss" />
+    <!-- do not remove this line! -->
+    <title>León</title>
   </head>
   <body>
-    <div class="uoc-container">
-      <picture>
-        <source srcset="./assets/images/logo.png?as=webp&width=350" type="image/webp" />
-        <img src="./assets/images/logo.png?width=350" alt="Universitat Oberta de Catalunya" class="uoc-logo" />
-      </picture>
-      <h1 class="uoc-title">Hello, UOC!</h1>
-      <p>
-        This is a starter template for the Advanced HTML and CSS Tools courses
-        from the Master's Program in Multimedia Applications and the Master's
-        Program in Web App and Website Development at the Universitat Oberta de
-        Catalunya.
-      </p>
+    <div class="page-wrapper">
+      <header class="header">
+        <div class="header__brand">
+          <h2 class="header__title">León</h2>
+        </div>
+        <nav class="nav">
+          <div class="nav__list">
+            <a class="nav__link" href="#highlights">Highlights</a>
+            <a class="nav__link" href="#food">Food</a>
+            <a class="nav__link" href="#plan">Plan Your Visit</a>
+          </div>
+        </nav>
+        <button class="nav-toggle">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </header>
+      <main>
+        <section class="leo">
+          <div class="leo__content">
+            <h1 class="leo__title">Welcome to León</h1>
+            <h2 class="leo__subtitle">
+              Where History Breathes and Flavor Sings.
+            </h2>
+          </div>
+        </section>
+        <section class="section intro">
+          <div class="container">
+            <p>
+              Discover the unique character and charm of León, a city where
+              ancient history and vibrant modern life come together. From its
+              breathtaking Gothic cathedral to its world-renowned culinary
+              scene, León invites you to explore its every corner.
+            </p>
+          </div>
+        </section>
+        <section class="section section--shaded" id="highlights">
+          <div class="container">
+            <h2 class="section-title">Must-See Highlights</h2>
+            <div class="highlights-grid">
+              <include src="./views/highlight-card-1.html"></include>
+              <include src="./views/highlight-card-2.html"></include>
+              <include src="./views/highlight-card-3.html"></include>
+            </div>
+          </div>
+        </section>
+        <section class="section gastronomy" id="food">
+          <div class="container">
+            <h2 class="section-title">A Taste of León</h2>
+            <p>
+              León is a paradise for food lovers. Dive into the bustling tapas
+              scene where every drink comes with a delicious, free tapa. Local
+              specialties like 'Cecina' (cured beef) and 'Botillo'.
+            </p>
+            <div class="gastronomy-grid">
+              <include src="./views/gastronomy-item-1.html"></include>
+              <include src="./views/gastronomy-item-2.html"></include>
+              <include src="./views/gastronomy-item-3.html"></include>
+              <include src="./views/gastronomy-item-4.html"></include>
+            </div>
+          </div>
+        </section>
+        <section class="section section--shaded cta" id="plan">
+          <div class="container">
+            <h2 class="section-title">Ready to Explore?</h2>
+            <a class="button" href="#">Plan Your Visit</a>
+          </div>
+        </section>
+      </main>
+      <include src="./views/footer.html"></include>
     </div>
-    <include src="./views/footer.html"></include>
-    <script type="module" src="./assets/scripts/main.js"></script><!-- do not remove this line! -->
+    <script type="module" src="./assets/scripts/main.js"></script>
+    <!-- do not remove this line! -->
   </body>
 </html>
